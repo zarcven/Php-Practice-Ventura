@@ -14,7 +14,21 @@
         <button type="submit">Calculate Area</button>
     </form>
     <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        $A = $_POST["side1"];
+        $B = $_POST["side2"];
+        $C = $_POST["side3"];
+        /* this is to check if its a valid triangle because for it to 
+        be a triangle the sum of two sides should not be greater than the 3rd side*/ 
+        if ($A + $B > $C && $A + $C > $B && $B + $C > $A) {
+            // to calculate the semi-perimeter
+            $S = ($A + $B+ $C) /2;
 
+            $areasquared = $S * ($S - $A) * ($S - $B) * ($S - $C);
+
+
+        }
+    }
     ?>
 </body>
 </html>
