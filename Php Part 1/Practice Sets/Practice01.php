@@ -25,9 +25,26 @@
             $S = ($A + $B+ $C) /2;
 
             $areasquared = $S * ($S - $A) * ($S - $B) * ($S - $C);
+            $area = squareRoot($areaSquared); // calling the function squareroot
 
-
+            echo "<p>Triangle Area: " . number_format($area, 2) . "</p>";
+        } else {
+            echo "<p>Invalid triangle sides!</p>";
         }
+    }
+
+    // function to calculate square root manually using Newton's method
+    function squareRoot($num) {
+        if ($num < 0) return 0; 
+        $x = $num; 
+        $y = 1; 
+        $epsilon = 0.000001; 
+
+        while ($x - $y > $epsilon) {
+            $x = ($x + $y) / 2;
+            $y = $num / $x;
+        }
+        return $x;
     }
     ?>
 </body>
